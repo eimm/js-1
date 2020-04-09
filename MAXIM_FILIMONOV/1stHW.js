@@ -71,7 +71,11 @@ var stringExpansion = function (string){
         for  (i=0 ; i<arrNumbers.length;i++){
             temp = arrNumbers[i];
             n = temp[0];
-            arrNumbers[i] = temp[1].repeat(n);
+            var word =[];
+            for (var j =0; j<n; j++){
+                word.push(temp[1]);
+            }
+            arrNumbers[i] = word.join('');
         }
         return arrNumbers.join('');
     }
