@@ -10,7 +10,7 @@ splitAndMerge = function(str,sp) {
     }
     var joinedStr = joinedArr.join(' ');
     return joinedStr;
-}
+};
 var str = "My name is John";
 console.log(splitAndMerge(str," "));
 console.log(splitAndMerge("Hello World!",","));
@@ -21,16 +21,14 @@ hashToArray = function (hash){
     for (var i in hash){
         if (hash.hasOwnProperty(i)){
             var entrie = [];
-            entrie.push(i);
-            entrie.push(hash[i]);
+            entrie.push(i,hash[i]);
             console.log(entrie);
             keys.push(entrie);
         }
     }
     return keys;
-}
+};
 console.log(hashToArray(testObject));
-
 var toCamelCase = function(string){
     var re = /-|_/;
     var arrWords = string.split(re);
@@ -152,9 +150,11 @@ function countDown (n){
     function timer(){
         console.log(n);
         n--;
+        if (n==-1){
+            clearInterval(timerId);
+        }
     }
     var timerId = setInterval(timer,1000,n);
-    setTimeout(function(){ clearInterval(timerId);}, (n+2)*1000);
 }
 countDown(10);
 
